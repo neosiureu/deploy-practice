@@ -10,6 +10,6 @@ public class HomeController {
     public String home(Model model)
     {
         model.addAttribute("message", "hello deploy");
-        return "home";
+        return "/home";
     }
 }
