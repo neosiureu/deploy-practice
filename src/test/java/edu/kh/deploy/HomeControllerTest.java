@@ -11,7 +11,7 @@ class HomeControllerTest {
 
         String view = new HomeController().home(model);
         assertEquals("home",view);
-        assertEquals("hello deploy", model.getAttribute("message"));
+        assertEquals("hello deploy v2", model.getAttribute("message"));
     }
     
 
