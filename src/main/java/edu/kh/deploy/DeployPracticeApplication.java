@@ -7,4 +7,4 @@ public class DeployPracticeApplication{
     public static void main(String []args){
         SpringApplication.run(DeployPracticeApplication.class,args);
     }
-}``
+}
