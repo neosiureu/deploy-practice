@@ -68,6 +68,18 @@ pipeline {
                         sh './gradlew test --no-daemon'
                     }
                 }
+                stage('Dependency check') {
+                    steps {
+                        withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_API_KEY')]) {
+                            sh './gradlew dependencyCheckAnalyze --no-daemon'
+                        }
+                    }
+                    post {
+                        always {
+                            archiveArtifacts artifacts: 'build/reports/dependency-check/**', allowEmptyArchive: true
+                        }
+                    }
+                }
                 stage('Build jar') {
                     steps {
                         sh './gradlew bootJar --no-daemon'
